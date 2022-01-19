@@ -15,7 +15,7 @@ This is a PHP port of the official [python client][2] library for the Plaid API
 ## Install
 
 ```console
-$ composer require dpods/plaid-api-php-client
+$ composer require 40katty04/plaid-api-php-client
 ```
 
 ## Documentation
