@@ -6,11 +6,12 @@ use ArrayObject;
 
 class Institutions extends Api
 {
-    public function get($count, $offset = 0, $options = null)
+    public function get($count = 100, $offset = 0, $countryCodes = ['US'], $options = null)
     {
         $post = [
             'count' => $count,
-            'offset' => $offset
+            'offset' => $offset,
+            'country_codes' => $countryCodes
         ];
         if($options != null) {
             $post['options'] = $options;
@@ -23,7 +24,7 @@ class Institutions extends Api
         // This will map to a JSON object even if it's empty
         $optionsObj = new ArrayObject($options);
 
-        return $this->client()->postPublicKey('/institutions/get_by_id', [
+        return $this->client()->post('/institutions/get_by_id', [
             'institution_id' => $institutionId,
             'options' => $optionsObj
         ]);
@@ -34,7 +35,7 @@ class Institutions extends Api
         // This will map to a JSON object even if it's empty
         $optionsObj = new ArrayObject($options);
 
-        return $this->client()->postPublicKey('/institutions/search', [
+        return $this->client()->post('/institutions/search', [
             'query' => $query,
             'options' => $optionsObj,
             'products' => $products

@@ -41,7 +41,7 @@ class Item extends Api
 
     public function delete($accessToken)
     {
-        return $this->client()->post('/item/delete', [
+        return $this->client()->post('/item/remove', [
             'access_token' => $accessToken
         ]);
     }

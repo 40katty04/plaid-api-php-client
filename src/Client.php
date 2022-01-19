@@ -16,11 +16,11 @@ use Plaid\Api\Transactions;
 
 class Client
 {
-    const VERSION = '0.4.1';
+    const VERSION = '1.0.1';
 
     const DEFAULT_TIMEOUT = 600; // 10 minutes
 
-    const DEFAULT_API_VERSION = '2018-05-22'; // starting api version
+    const DEFAULT_API_VERSION = '2020-09-14'; // starting api version
 
     /**
      * @var string
@@ -142,14 +142,6 @@ class Client
         return $this->_post($path, $data);
     }
 
-    public function postPublicKey($path, $data)
-    {
-        $postData = array_merge($data, [
-            'public_key' => $this->publicKey,
-        ]);
-
-        return $this->_post($path, $postData);
-    }
 
     private function _post($path, $data, $autoDecode = true)
     {

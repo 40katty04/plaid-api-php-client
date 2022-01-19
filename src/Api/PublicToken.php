@@ -16,10 +16,4 @@ class PublicToken extends Api
         ]);
     }
 
-    public function create($accessToken)
-    {
-        return $this->client->post('/item/public_token/create', [
-            'access_token' => $accessToken
-        ]);
-    }
 }
