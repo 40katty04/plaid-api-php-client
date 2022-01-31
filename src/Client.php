@@ -12,6 +12,7 @@ use Plaid\Api\Identity;
 use Plaid\Api\Income;
 use Plaid\Api\Institutions;
 use Plaid\Api\Item;
+use Plaid\Api\LinkToken;
 use Plaid\Api\Transactions;
 
 class Client
@@ -70,6 +71,8 @@ class Client
         $this->institutions = new Institutions($this);
         $this->item = new Item($this);
         $this->transactions = new Transactions($this);
+        $this->linkToken = new LinkToken($this);
+
     }
 
     public function accounts()

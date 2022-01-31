@@ -19,13 +19,14 @@ class Institutions extends Api
         return $this->client()->post('/institutions/get', $post);
     }
 
-    public function getById($institutionId, $options = [])
+    public function getById($institutionId, $countryCodes = ['US'], $options = [])
     {
         // This will map to a JSON object even if it's empty
         $optionsObj = new ArrayObject($options);
 
         return $this->client()->post('/institutions/get_by_id', [
             'institution_id' => $institutionId,
+            'country_codes' => $countryCodes,
             'options' => $optionsObj
         ]);
     }
